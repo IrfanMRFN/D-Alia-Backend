@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 connectDB();
 
 app.use((req, res, next) => {
-  res.type("application/javascript");
+  res.type("text/jsx");
   next();
 });
 
