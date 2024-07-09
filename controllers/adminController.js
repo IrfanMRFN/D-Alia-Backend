@@ -39,7 +39,7 @@ const registerAdmin = async (req, res) => {
       .status(201)
       .json({ success: true, message: "Admin berhasil terdaftar", token });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat mendaftarkan admin",
@@ -69,7 +69,7 @@ const loginAdmin = async (req, res) => {
         .json({ success: false, message: "Data yang dimasukkan tidak sesuai" });
     }
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res
       .status(500)
       .json({ success: false, message: "Terjadi kesalahan saat login" });

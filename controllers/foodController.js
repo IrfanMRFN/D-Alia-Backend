@@ -19,7 +19,7 @@ const addFood = async (req, res) => {
       .status(201)
       .json({ success: true, message: "Menu baru berhasil ditambah" });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res
       .status(500)
       .json({ success: false, message: "Error menambah menu baru" });
@@ -32,7 +32,7 @@ const listFood = async (req, res) => {
     const foods = await foodModel.find({});
     res.status(200).json({ success: true, data: foods });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat mengambil daftar menu",
@@ -75,7 +75,7 @@ const updateFood = async (req, res) => {
       res.status(404).json({ success: false, message: "Menu tidak ditemukan" });
     }
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat memperbarui menu",
@@ -100,7 +100,7 @@ const removeFood = async (req, res) => {
       res.status(404).json({ success: false, message: "Menu tidak ditemukan" });
     }
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat menghapus menu",

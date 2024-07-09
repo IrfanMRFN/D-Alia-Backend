@@ -51,7 +51,7 @@ const registerUser = async (req, res) => {
       .status(201)
       .json({ success: true, message: "Pengguna berhasil terdaftar", token });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat mendaftarkan pengguna",
@@ -81,7 +81,7 @@ const loginUser = async (req, res) => {
     const token = createToken(user._id);
     res.json({ success: true, token });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res
       .status(500)
       .json({ success: false, message: "Terjadi kesalahan saat login" });
@@ -115,7 +115,7 @@ const changePassword = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Password berhasil diubah" });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat mengubah password",

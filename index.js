@@ -14,24 +14,12 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
-
-// CORS configuration
-const corsOptions = {
-  origin: [
-    "https://d-alia-admin-panel.vercel.app",
-    "https://d-alia-web-store-frontend.vercel.app",
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true, // enable CORS credentials
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Rute utama
 app.get("/", (req, res) => {
   res.send("API Working");
-  console.error(error);
+  console.error(err);
 });
 
 // Koneksi database

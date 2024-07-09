@@ -14,7 +14,7 @@ const authMiddleware = async (req, res, next) => {
     req.body.userId = decodedToken.id;
     next();
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(401).json({
       success: false,
       message: "Terjadi kesalahan saat memverifikasi token",

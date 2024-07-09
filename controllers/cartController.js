@@ -14,7 +14,7 @@ const addToCart = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Berhasil ditambahkan ke keranjang" });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat menambahkan ke keranjang",
@@ -38,7 +38,7 @@ const removeFromCart = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Berhasil dihapus dari keranjang" });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat menghapus dari keranjang",
@@ -55,7 +55,7 @@ const getCart = async (req, res) => {
 
     res.status(200).json({ success: true, cartData });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat mengambil data keranjang",

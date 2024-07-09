@@ -14,7 +14,7 @@ const placeOrder = async (req, res) => {
 
     res.status(201).json({ success: true, message: "Pesanan berhasil dibuat" });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat membuat pesanan",
@@ -29,7 +29,7 @@ const userOrder = async (req, res) => {
     const orders = await orderModel.find({ userId });
     res.status(200).json({ success: true, data: orders });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat mengambil pesanan pengguna",
@@ -43,7 +43,7 @@ const listOrders = async (req, res) => {
     const orders = await orderModel.find({});
     res.status(200).json({ success: true, data: orders });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat mengambil daftar pesanan",
@@ -60,7 +60,7 @@ const updateStatus = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Status pesanan berhasil diperbarui" });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat memperbarui status pesanan",
@@ -78,7 +78,7 @@ const updatePayment = async (req, res) => {
       message: "Status pembayaran berhasil diperbarui",
     });
   } catch (error) {
-    console.error(error);
+    console.error(err);
     res.status(500).json({
       success: false,
       message: "Terjadi kesalahan saat memperbarui status pembayaran",

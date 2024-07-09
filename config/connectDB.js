@@ -7,7 +7,7 @@ export const connectDB = async () => {
     await mongoose.connect(DB_URL);
     console.log("Database terhubung");
   } catch (error) {
-    console.log("Gagal terhubung ke database", error);
+    console.log("Gagal terhubung ke database", err);
     process.exit(1);
   }
 };

@@ -61,7 +61,7 @@ const sendOrderNotification = async (orderData) => {
   } catch (error) {
     console.error(
       "Terjadi kesalahan saat mengirim email notifikasi pesanan: ",
-      error
+      err
     );
   }
 };
