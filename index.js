@@ -19,37 +19,6 @@ app.use(cors());
 // Rute utama
 app.get("/", (req, res) => {
   res.send("API Working");
-  console.error(err);
-  res.status(500).json({ error: "Internal Server Error" });
-});
-
-// Route to serve images with dynamic content type
-app.get("/images", (req, res) => {
-  const imagePath = path.join(__dirname, "public", req.params.filename);
-
-  // Determine content type based on file extension
-  let contentType;
-  const ext = path.extname(imagePath).toLowerCase();
-  switch (ext) {
-    case ".jpg":
-    case ".jpeg":
-      contentType = "image/jpeg";
-      break;
-    case ".png":
-      contentType = "image/png";
-      break;
-    case ".gif":
-      contentType = "image/gif";
-      break;
-    default:
-      contentType = "application/octet-stream"; // fallback to binary data if type is unknown
-  }
-
-  // Set the content type header
-  res.type(contentType);
-
-  // Send the file
-  res.sendFile(imagePath);
 });
 
 // Koneksi database
