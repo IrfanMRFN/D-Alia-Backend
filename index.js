@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 // Route to serve images with dynamic content type
-app.get("/images/:filename", (req, res) => {
+app.get("/images", (req, res) => {
   const imagePath = path.join(__dirname, "public", req.params.filename);
 
   // Determine content type based on file extension
