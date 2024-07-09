@@ -20,6 +20,7 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.send("API Working");
   console.error(err);
+  res.status(500).json({ error: "Internal Server Error" });
 });
 
 // Koneksi database
