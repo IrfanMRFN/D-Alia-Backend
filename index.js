@@ -24,6 +24,11 @@ app.get("/", (req, res) => {
 // Koneksi database
 connectDB();
 
+app.use((req, res, next) => {
+  res.type("application/javascript");
+  next();
+});
+
 // Rute API
 app.use("/api/food", foodRouter);
 app.use("/images", express.static("uploads"));
