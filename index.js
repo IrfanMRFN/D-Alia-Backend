@@ -7,6 +7,7 @@ import userRouter from "./routes/userRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 import adminRouter from "./routes/adminRoute.js";
+import feedbackRouter from "./routes/feedbackRoute.js";
 
 // Konfigurasi app
 const app = express();
@@ -31,6 +32,7 @@ app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/admin", adminRouter);
+app.use("/api/feedback", feedbackRouter);
 
 // Menjalankan server
 app.listen(PORT, () => {
