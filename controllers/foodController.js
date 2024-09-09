@@ -5,6 +5,14 @@ import fs from "fs";
 const addFood = async (req, res) => {
   const imageFilename = req.file.filename;
 
+  // Cek apakah harga melebihi limit
+  if (req.body.price > 1000000) {
+    return res.status(400).json({
+      success: false,
+      message: "Harga melebihi batas maksimum 1 juta rupiah",
+    });
+  }
+
   const food = new foodModel({
     name: req.body.name,
     description: req.body.description,
@@ -44,6 +52,15 @@ const listFood = async (req, res) => {
 const updateFood = async (req, res) => {
   try {
     const { name, description, price, category } = req.body;
+
+    // Cek apakah harga melebihi limit
+    if (price > 1000000) {
+      return res.status(400).json({
+        success: false,
+        message: "Harga melebihi batas maksimum 1 juta rupiah",
+      });
+    }
+
     const updateData = { name, description, price, category };
 
     // Untuk menangani pembaruan file jika ada file gambar baru

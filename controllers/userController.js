@@ -35,6 +35,14 @@ const registerUser = async (req, res) => {
       });
     }
 
+    // Validasi phoneNumber hanya berisi angka
+    if (!validator.isNumeric(phoneNumber)) {
+      return res.status(400).json({
+        success: false,
+        message: "Nomor telepon harus berupa angka",
+      });
+    }
+
     // Hash password
     const hashedPassword = await argon2.hash(password);
 
@@ -97,6 +105,14 @@ const changePassword = async (req, res) => {
       return res
         .status(404)
         .json({ success: false, message: "Pengguna tidak ditemukan" });
+    }
+
+    // Validasi phoneNumber hanya berisi angka
+    if (!validator.isNumeric(phoneNumber)) {
+      return res.status(400).json({
+        success: false,
+        message: "Nomor telepon harus berupa angka",
+      });
     }
 
     // Verifikasi nomor telepon
